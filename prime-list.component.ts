@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PrimeService } from 'src/prime/prime.service';
 import {IPrime} from 'src/app/prime/prime.interface';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-prime-list',
@@ -14,23 +15,24 @@ export class PrimeListComponent implements OnInit {
   stringJson: any ;
   stringObject:  any;
   y:string = '';
+  primeNumber: string = "1000";
   primeList : Array<number> = [];
+  primeNumberInt: number =0;
   
-   
-
     constructor(private primeService: PrimeService) { }
 
     ngOnInit(): any {
-        this.generatePrime();
+       
      };
 
 
      generatePrime() {
       this.title += " generatePrime";
+      this.primeNumberInt = Number( this.primeNumber); 
                
-     this.stringJson= this.primeService.getPrimeList();
+     this.stringJson= this.primeService.getPrimeList2(this.primeNumberInt);
 
-     this.primeService.getPrimeList2().subscribe(data => {
+     this.primeService.getPrimeList2(this.primeNumberInt).subscribe(data => {
        console.log(data);
        this.primeList = data;
      });
