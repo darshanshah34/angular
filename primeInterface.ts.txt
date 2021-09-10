@@ -1,0 +1,6 @@
+interface 
+
+export interface   {
+  integer: prime;
+  isPrime: boolean;
+}
