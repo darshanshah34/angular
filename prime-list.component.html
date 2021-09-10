@@ -1,4 +1,10 @@
-<p>prime-list works dhs!</p>
+<h1> It works great!  </h1>
+<button (click)="generatePrime()">Generate Prime</button>
+
+
+
+<p><input type="text" id="primeNumber" name="primeNumber" [(ngModel)]="primeNumber"></p>
+<h1> {{primeNumber}}</h1>
 
 
     <li *ngFor="let x of primeList">
